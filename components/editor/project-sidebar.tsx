@@ -13,12 +13,7 @@ interface ProjectSidebarProps {
 export function ProjectSidebar({ isOpen, onClose }: ProjectSidebarProps) {
   return (
     <>
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-30"
-          onClick={onClose}
-        />
-      )}
+      {isOpen && <div className="fixed inset-0 z-30" onClick={onClose} />}
       <aside
         className={cn(
           "fixed left-0 top-12 z-40 flex h-[calc(100vh-3rem)] w-80 flex-col border-r border-surface-border bg-surface transition-transform duration-200",
@@ -27,7 +22,12 @@ export function ProjectSidebar({ isOpen, onClose }: ProjectSidebarProps) {
       >
         <div className="flex items-center justify-between border-b border-surface-border px-4 py-3">
           <h2 className="text-sm font-semibold text-copy-primary">Projects</h2>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            aria-label="Close sidebar"
+          >
             <X className="h-4 w-4" />
           </Button>
         </div>
@@ -35,14 +35,22 @@ export function ProjectSidebar({ isOpen, onClose }: ProjectSidebarProps) {
         <div className="flex-1 p-4">
           <Tabs defaultValue="my-projects" className="w-full">
             <TabsList className="w-full">
-              <TabsTrigger value="my-projects" className="flex-1">My Projects</TabsTrigger>
-              <TabsTrigger value="shared" className="flex-1">Shared</TabsTrigger>
+              <TabsTrigger value="my-projects" className="flex-1">
+                My Projects
+              </TabsTrigger>
+              <TabsTrigger value="shared" className="flex-1">
+                Shared
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="my-projects" className="mt-4">
-              <p className="text-center text-sm text-copy-muted">No projects yet</p>
+              <p className="text-center text-sm text-copy-muted">
+                No projects yet
+              </p>
             </TabsContent>
             <TabsContent value="shared" className="mt-4">
-              <p className="text-center text-sm text-copy-muted">No shared projects yet</p>
+              <p className="text-center text-sm text-copy-muted">
+                No shared projects yet
+              </p>
             </TabsContent>
           </Tabs>
         </div>
