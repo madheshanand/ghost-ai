@@ -8,11 +8,19 @@ interface EditorNavbarProps {
   onToggleSidebar: () => void;
 }
 
-export function EditorNavbar({ sidebarOpen, onToggleSidebar }: EditorNavbarProps) {
+export function EditorNavbar({
+  sidebarOpen,
+  onToggleSidebar,
+}: EditorNavbarProps) {
   return (
     <nav className="flex h-12 items-center justify-between border-b border-surface-border bg-surface px-4">
       <div className="flex items-center">
-        <Button variant="ghost" size="icon" onClick={onToggleSidebar}>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onToggleSidebar}
+          aria-label={sidebarOpen ? "Close sidebar" : "Open sidebar"}
+        >
           {sidebarOpen ? (
             <PanelLeftClose className="h-5 w-5" />
           ) : (
